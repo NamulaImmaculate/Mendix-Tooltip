@@ -1,5 +1,6 @@
 import { /*CSSProperties,*/ Component, createElement } from "react";
-
+import * as ReactTooltip from "react-tooltip";
+// import Tooltip from "rc-tooltip";
 import "../ui/Tooltip.scss";
 
 export interface WrapperProps {
@@ -15,10 +16,12 @@ export interface WrapperProps {
 
 export default class TooltipContainer extends Component<WrapperProps> {
     render() {
-        return createElement("div", { className: "tooltip" }, this.props.linktext,
-            createElement("span", { className: "tooltiptext" }, this.props.tooltipText)
-    );
+       return createElement("div", {},
+                createElement("p", { "data-tip": "voiillaaa it worked" }, "hover over me"),
+                createElement(ReactTooltip, {})
+        );
     }
+
     public static parseStyle(style = ""): { [key: string]: string } {
     try {
         return style.split(";").reduce<{ [key: string]: string }>((styleObject, line) => {
