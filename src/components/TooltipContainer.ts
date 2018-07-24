@@ -1,16 +1,25 @@
-import { /*CSSProperties,*/ Component /*createElement*/ } from "react";
+import { /*CSSProperties,*/ Component, createElement } from "react";
 
-// interface WrapperProps {
-//     class: string;
-//     mxObject: mendix.lib.MxObject;
-//     mxform: mxui.lib.form._FormBase;
-//     style: string;
-//     readOnly: boolean;
-//     friendlyId: string;
-// }
+import "../ui/Tooltip.scss";
 
-export default class HelloWorldContainer extends Component {
-public static parseStyle(style = ""): { [key: string]: string } {
+export interface WrapperProps {
+    class: string;
+    mxObject: mendix.lib.MxObject;
+    mxform: mxui.lib.form._FormBase;
+    style: string;
+    readOnly: boolean;
+    friendlyId: string;
+    tooltipText: string;
+    linktext: string;
+}
+
+export default class TooltipContainer extends Component<WrapperProps> {
+    render() {
+        return createElement("div", { className: "string" }, this.props.linktext,
+            createElement("span", { className: "tooltiptext" }, this.props.tooltipText)
+    );
+    }
+    public static parseStyle(style = ""): { [key: string]: string } {
     try {
         return style.split(";").reduce<{ [key: string]: string }>((styleObject, line) => {
             const pair = line.split(":");
@@ -21,13 +30,13 @@ public static parseStyle(style = ""): { [key: string]: string } {
             return styleObject;
         }, {});
     } catch (error) {
-        HelloWorldContainer.logError("Failed to parse style", style, error);
+        TooltipContainer.logError("Failed to parse style", style, error);
     }
 
     return {};
 }
 
-public static logError(message: string, style?: string, error?: any) {
+    public static logError(message: string, style?: string, error?: any) {
     // tslint:disable-next-line:no-console
     window.logger ? window.logger.error(message) : console.log(message, style, error);
 }
