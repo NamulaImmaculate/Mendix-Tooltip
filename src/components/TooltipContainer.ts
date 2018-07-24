@@ -18,8 +18,17 @@ export interface WrapperProps {
 
 export default class TooltipContainer extends Component<WrapperProps> {
     render() {
+<<<<<<< HEAD
        return createElement("div", {},
+<<<<<<< HEAD
                 createElement("p", { "data-tip": this.props.tooltipText, "data-place": this.props.tooltipPosition }, this.props.linktext),
+=======
+                createElement("p", { "data-tip": this.props.tooltipText }, this.props.linktext),
+=======
+       return createElement("div", { className: "tooltipContainer" },
+                createElement("p", { "data-tip": "voiillaaa it worked", "data-type": "warning" }, "hover over me"),
+>>>>>>> commit before a pull
+>>>>>>> commit before a pull
                 createElement(ReactTooltip, {})
         );
     }
