@@ -15,7 +15,7 @@ export interface WrapperProps {
 
 export default class TooltipContainer extends Component<WrapperProps> {
     render() {
-        return createElement("div", { className: "string" }, this.props.linktext,
+        return createElement("div", { className: "tooltip" }, this.props.linktext,
             createElement("span", { className: "tooltiptext" }, this.props.tooltipText)
     );
     }
