@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <widget id="com.mendix.widget.custom.tooltip.Tooltip" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
     <name>Tooltip</name>
-    <description>Add tooltip to a user defined field containing either a text, image or a link</description>
+    <description>Add tooltip to a user defined text, image or link</description>
     <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdhJREFUeNqUUz1vE0EQfbN7PjvGxBIWpEmVghaJAqF0fFS0FAgJGjqaCLrUqdKkoE2RX4DokSLoEKKDf4BEESGSYNlO8J1vJ29v1s5BhUd69uzM7Jt5c3eyNsC7O5vuPsQDQQF0AJcBQl8catNACFHyMLWYU3z5FD7I4wfQt4c9RgaWwDWiT5wnRJIVI8YJMSSK+v/Jo3NkoxN6X9HX631I3mauYuc/wPgYOP1u0ww2yMGJKk7RvoEwGcONfrMkDLMwI9lxwQl/QTotTkj2NgunE5JwZE90j0h8SlBKngOjos5FRVk99ayETH4CUSJrUCU1K5kpKIcmPTYrOMlZ2gsiQdxbqcau6XIkEjHE2IQ/qml5qT4uXONR512DoQx2doKFebELRaqp1Bqp8WFBognRGvdrf14T/paZLQjmiMXTYAW5t+A4mAT5pzYSZJ7hnkC6zLbSoqo0W6fRLUpqSR13MUdJ3qtkLS+r6LMTSeDTi+YT5vNf9ZdSotu2nXkfVqXXwd76mtwj85WtZ+7myx2P9/sBr3Zrkd8aD/WSxJ4gfhzpx2bq1pttrxpyfXg3fgg4wH+Ya/jdM77Br5/OcPhZ93l+gSVtM+32YJlLvuHfTgqfL0NwIcAAg6i961ryXmAAAAAASUVORK5CYII=</icon>
     <properties>
         <property key="linktext" type="string">

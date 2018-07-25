@@ -1,6 +1,6 @@
 {
-    "name": "mendix-tooltip",
-    "widgetName": "tooltip",
+    "name": "mendixtooltip",
+    "widgetName": "mendixTooltip",
     "version": "0.0.1",
     "description": "Add tooltip to a user defined text, image or link",
     "scripts": {
