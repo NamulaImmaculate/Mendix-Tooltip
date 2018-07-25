@@ -13,13 +13,14 @@ export interface WrapperProps {
     linktext: string;
     callMicroflow?: string;
     callNanoflow?: string;
+    tooltipPosition: "top" | "right" | "bottom" | "left" ;
 }
 
 export default class TooltipContainer extends Component<WrapperProps> {
     render() {
-        return createElement("div", {},
-            createElement("p", { "data-tip": this.props.tooltipText }, this.props.linktext),
-            createElement(ReactTooltip, {})
+       return createElement("div", {},
+                createElement("p", { "data-tip": this.props.tooltipText, "data-place": this.props.tooltipPosition }, this.props.linktext),
+                createElement(ReactTooltip, {})
         );
     }
 
