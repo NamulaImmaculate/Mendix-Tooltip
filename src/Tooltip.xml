@@ -9,13 +9,11 @@
             <category>Appearance</category>
             <description>Text of the link</description>
         </property>
-
         <property key="tooltipText" type="string">
             <caption>Tooltip text</caption>
             <category>Appearance</category>
             <description>Text to display on the tooltip</description>
         </property>
-
         <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip posotion</caption>
             <category>Appearance</category>
@@ -27,7 +25,6 @@
                 <enumerationValue key="left">left</enumerationValue>
             </enumerationValues>
         </property>
-
         <!-- the bootstrap style of the tooltip -->
         <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
             <caption>Style</caption>
@@ -42,8 +39,7 @@
                 <enumerationValue key="light">light</enumerationValue>
             </enumerationValues>
         </property>
-
-        <property key="bootsrtapEffect" type="enumeration" defaultValue="float">
+        <property key="bootstrapEffect" type="enumeration" defaultValue="float">
             <caption>Effect</caption>
             <category>Appearance</category>
             <description>Select an effect for the tooltip</description>
@@ -52,20 +48,17 @@
                 <enumerationValue key="solid">solid</enumerationValue>
             </enumerationValues>
         </property>
-
         <property key="callMicroflow" type="microflow" required="false" defaultValue="">
             <caption>Microflow</caption>
             <category>Behavior</category>
             <description>Microflow to execute on click</description>
-            <returnType type="Boolean"></returnType>
+            <returnType type="Void"></returnType>
         </property>
-
         <property key="callNanoflow" type="nanoflow" required="false" defaultValue="">
             <caption>Nanoflow</caption>
             <category>Behavior</category>
             <description>Nanoflow to execute on click</description>
-            <returnType type="Boolean"></returnType>
+            <returnType type="Void"></returnType>
         </property>
     </properties>
-
 </widget>

@@ -1,8 +1,8 @@
 {
     "name": "mendix-tooltip",
-    "widgetName": "Tooltip",
+    "widgetName": "tooltip",
     "version": "0.0.1",
-    "description": "Widget that adds a tooltip to user defined text, image or link.",
+    "description": "Add tooltip to a user defined text, image or link",
     "scripts": {
         "start": "nodemon --watch webpack.config.js --watch Gruntfile.js --exec \"grunt",
         "emit": "tsc",

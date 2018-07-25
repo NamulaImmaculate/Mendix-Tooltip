@@ -15,7 +15,7 @@ export interface WrapperProps {
     callNanoflow?: Nanoflow;
     tooltipPosition: "top" | "right" | "bottom" | "left" ;
     bootstrapStyle: "dark" | "success" | "warning" | "error" | "info" | "light";
-    bootstapEffect: "float" | "solid";
+    bootstrapEffect: "float" | "solid";
 }
 
 interface Nanoflow {
@@ -33,7 +33,7 @@ export default class TooltipContainer extends Component<WrapperProps> {
                     "data-tip": this.props.tooltipText,
                     "data-place": this.props.tooltipPosition,
                     "data-type": this.props.bootstrapStyle,
-                    "data-effect": this.props.bootstapEffect,
+                    "data-effect": this.props.bootstrapEffect,
                     "class": "tooltiptext"
                 },
                 this.props.linktext),
