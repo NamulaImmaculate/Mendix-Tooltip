@@ -42,6 +42,21 @@
             <description>Nanoflow to execute on click</description>
             <returnType type="Boolean"></returnType>
         </property>
+        
+        <!-- the bootstrap style of the tooltip -->
+        <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
+            <caption>style</caption>
+            <category>Appearance</category>
+            <description>bootstrap style to apply on tooltip</description>
+            <enumerationValues>
+                <enumerationValue key="dark">dark</enumerationValue>
+                <enumerationValue key="success">success</enumerationValue>
+                <enumerationValue key="warning">warning</enumerationValue>
+                <enumerationValue key="error">error</enumerationValue>
+                <enumerationValue key="info">info</enumerationValue>
+                <enumerationValue key="light">light</enumerationValue>
+            </enumerationValues>
+        </property>
     </properties>
 
 </widget>
