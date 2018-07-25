@@ -1,4 +1,7 @@
 import { /*CSSProperties,*/ Component, createElement } from "react";
+import { findDOMNode } from "react-dom";
+
+import ReactTooltip from "react-tooltip";
 
 import "../ui/Tooltip.scss";
 
@@ -14,10 +17,17 @@ export interface WrapperProps {
 }
 
 export default class TooltipContainer extends Component<WrapperProps> {
+    private meme: Element[] = [];
     render() {
-        return createElement("div", { className: "tooltip" }, this.props.linktext,
-            createElement("span", { className: "tooltiptext" }, this.props.tooltipText)
-    );
+        return createElement("div", {},
+        createElement("p", { ref: "foo", dataTip: "tooltip" }, "Hello toolTip"),
+        createElement("button", {
+            onClick: () => { ReactTooltip.show(findDOMNode(this.refs.foo) as Element); }
+        }));
+    }
+
+    componentDidMount() {
+        this.meme.push(document.getElementsByClassName("dj_webkit dj_chrome dj_contentbox")[0] as Element);
     }
     public static parseStyle(style = ""): { [key: string]: string } {
     try {
