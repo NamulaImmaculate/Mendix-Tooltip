@@ -17,21 +17,40 @@
             <description>Text to display on the tooltip</description>
         </property>
 
-        <property key="linktext" type="string">
-            <caption>link text</caption>
-            <category>Appearance</category>
-            <description>link text</description>
-        </property>
-
         <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip posotion</caption>
             <category>Appearance</category>
-            <description>position of tooltip</description>
+            <description>Select position to display the tooltip</description>
             <enumerationValues>
                 <enumerationValue key="top">top</enumerationValue>
                 <enumerationValue key="right">right</enumerationValue>
                 <enumerationValue key="bottom">bottom</enumerationValue>
                 <enumerationValue key="left">left</enumerationValue>
+            </enumerationValues>
+        </property>
+
+        <!-- the bootstrap style of the tooltip -->
+        <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
+            <caption>Style</caption>
+            <category>Appearance</category>
+            <description>Select a style to display the tooltip</description>
+            <enumerationValues>
+                <enumerationValue key="dark">dark</enumerationValue>
+                <enumerationValue key="success">success</enumerationValue>
+                <enumerationValue key="warning">warning</enumerationValue>
+                <enumerationValue key="error">error</enumerationValue>
+                <enumerationValue key="info">info</enumerationValue>
+                <enumerationValue key="light">light</enumerationValue>
+            </enumerationValues>
+        </property>
+
+        <property key="bootsrtapEffect" type="enumeration" defaultValue="float">
+            <caption>Effect</caption>
+            <category>Appearance</category>
+            <description>Select an effect for the tooltip</description>
+            <enumerationValues>
+                <enumerationValue key="float">float</enumerationValue>
+                <enumerationValue key="solid">solid</enumerationValue>
             </enumerationValues>
         </property>
 
@@ -47,21 +66,6 @@
             <category>Behavior</category>
             <description>Nanoflow to execute on click</description>
             <returnType type="Boolean"></returnType>
-        </property>
-        
-        <!-- the bootstrap style of the tooltip -->
-        <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
-            <caption>style</caption>
-            <category>Appearance</category>
-            <description>bootstrap style to apply on tooltip</description>
-            <enumerationValues>
-                <enumerationValue key="dark">dark</enumerationValue>
-                <enumerationValue key="success">success</enumerationValue>
-                <enumerationValue key="warning">warning</enumerationValue>
-                <enumerationValue key="error">error</enumerationValue>
-                <enumerationValue key="info">info</enumerationValue>
-                <enumerationValue key="light">light</enumerationValue>
-            </enumerationValues>
         </property>
     </properties>
 

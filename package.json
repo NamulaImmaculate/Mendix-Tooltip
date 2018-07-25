@@ -73,11 +73,6 @@
     },
     "dependencies": {
         "@types/react-tooltip": "^3.3.5",
-<<<<<<< HEAD
-=======
-        "rc-tooltip": "^3.7.2",
-        "react-iframe": "^1.2.0",
->>>>>>> configure bootstrap styles
         "react-tooltip": "^3.6.1"
     }
 }

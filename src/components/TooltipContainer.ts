@@ -12,18 +12,61 @@ export interface WrapperProps {
     tooltipText: string;
     linktext: string;
     callMicroflow?: string;
-    callNanoflow?: string;
+    callNanoflow?: Nanoflow;
     tooltipPosition: "top" | "right" | "bottom" | "left" ;
     bootstrapStyle: "dark" | "success" | "warning" | "error" | "info" | "light";
+    bootstapEffect: "float" | "solid";
+}
+
+interface Nanoflow {
+    nanoflow: any[];
+    paramsSpec: {
+        Progress: string;
+    };
 }
 
 export default class TooltipContainer extends Component<WrapperProps> {
     render() {
 
        return createElement("div", {},
-                createElement("p", { "data-tip": this.props.tooltipText, "data-place": this.props.tooltipPosition, "data-type": this.props.bootstrapStyle }, this.props.linktext),
+                createElement("p", {
+                    "data-tip": this.props.tooltipText,
+                    "data-place": this.props.tooltipPosition,
+                    "data-type": this.props.bootstrapStyle,
+                    "data-effect": this.props.bootstapEffect,
+                    "onClick": this.handleChanges.bind(this)
+                },
+                this.props.linktext),
                 createElement(ReactTooltip, {})
         );
+    }
+
+    private handleChanges(_event: Event) {
+        const { mxform, callMicroflow, callNanoflow } = this.props;
+        if (callMicroflow) {
+            mx.data.action({
+                params: {
+                    applyto: "None",
+                    actionname: callMicroflow
+                },
+                origin: mxform,
+                callback: () => undefined,
+                error: () => {
+                    mx.ui.error("Microflow working (just testing)");
+                }
+            });
+        }
+
+        if (callNanoflow && callNanoflow.nanoflow && this.props.mxObject) {
+            const context = new mendix.lib.MxContext();
+
+            mx.data.callNanoflow({
+            nanoflow: callNanoflow,
+            origin: mxform,
+            context,
+            callback: () => undefined
+            });
+        }
     }
 
     public static parseStyle(style = ""): { [key: string]: string } {
