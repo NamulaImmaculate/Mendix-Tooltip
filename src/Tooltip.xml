@@ -28,6 +28,20 @@
             <category>Appearance</category>
             <description>link text</description>
         </property>
+
+        <property key="callMicroflow" type="microflow" required="false" defaultValue="">
+            <caption>Microflow</caption>
+            <category>Behavior</category>
+            <description>Microflow to execute on click</description>
+            <returnType type="Boolean"></returnType>
+        </property>
+
+        <property key="callNanoflow" type="nanoflow" required="false" defaultValue="">
+            <caption>Nanoflow</caption>
+            <category>Behavior</category>
+            <description>Nanoflow to execute on click</description>
+            <returnType type="Boolean"></returnType>
+        </property>
     </properties>
 
 </widget>
