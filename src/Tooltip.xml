@@ -11,15 +11,15 @@
             <description/>
         </property>
 
-        <property key="tooltipPosition" type="enumeration" defaultValue="below">
+        <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip posotion</caption>
             <category>Appearance</category>
             <description>position of tooltip</description>
             <enumerationValues>
-                <enumerationValue key="above">Above</enumerationValue>
-                <enumerationValue key="after">After</enumerationValue>
-                <enumerationValue key="below">Below</enumerationValue>
-                <enumerationValue key="before">Before</enumerationValue>
+                <enumerationValue key="top">top</enumerationValue>
+                <enumerationValue key="right">right</enumerationValue>
+                <enumerationValue key="bottom">bottom</enumerationValue>
+                <enumerationValue key="left">left</enumerationValue>
             </enumerationValues>
         </property>
 
