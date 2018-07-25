@@ -29,44 +29,16 @@ export default class TooltipContainer extends Component<WrapperProps> {
     render() {
 
        return createElement("div", {},
-                createElement("p", {
+                createElement("a", {
                     "data-tip": this.props.tooltipText,
                     "data-place": this.props.tooltipPosition,
                     "data-type": this.props.bootstrapStyle,
                     "data-effect": this.props.bootstapEffect,
-                    "onClick": this.handleChanges.bind(this)
+                    "class": "tooltiptext"
                 },
                 this.props.linktext),
                 createElement(ReactTooltip, {})
         );
-    }
-
-    private handleChanges(_event: Event) {
-        const { mxform, callMicroflow, callNanoflow } = this.props;
-        if (callMicroflow) {
-            mx.data.action({
-                params: {
-                    applyto: "None",
-                    actionname: callMicroflow
-                },
-                origin: mxform,
-                callback: () => undefined,
-                error: () => {
-                    mx.ui.error("Microflow working (just testing)");
-                }
-            });
-        }
-
-        if (callNanoflow && callNanoflow.nanoflow && this.props.mxObject) {
-            const context = new mendix.lib.MxContext();
-
-            mx.data.callNanoflow({
-            nanoflow: callNanoflow,
-            origin: mxform,
-            context,
-            callback: () => undefined
-            });
-        }
     }
 
     public static parseStyle(style = ""): { [key: string]: string } {
