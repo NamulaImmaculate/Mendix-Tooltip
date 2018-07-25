@@ -17,6 +17,12 @@
             <description>Text to display on the tooltip</description>
         </property>
 
+        <property key="linktext" type="string">
+            <caption>link text</caption>
+            <category>Appearance</category>
+            <description>link text</description>
+        </property>
+
         <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip posotion</caption>
             <category>Appearance</category>
