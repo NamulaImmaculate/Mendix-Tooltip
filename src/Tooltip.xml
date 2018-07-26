@@ -4,16 +4,55 @@
     <description>Add tooltip to a user defined text, image or link</description>
     <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdhJREFUeNqUUz1vE0EQfbN7PjvGxBIWpEmVghaJAqF0fFS0FAgJGjqaCLrUqdKkoE2RX4DokSLoEKKDf4BEESGSYNlO8J1vJ29v1s5BhUd69uzM7Jt5c3eyNsC7O5vuPsQDQQF0AJcBQl8catNACFHyMLWYU3z5FD7I4wfQt4c9RgaWwDWiT5wnRJIVI8YJMSSK+v/Jo3NkoxN6X9HX631I3mauYuc/wPgYOP1u0ww2yMGJKk7RvoEwGcONfrMkDLMwI9lxwQl/QTotTkj2NgunE5JwZE90j0h8SlBKngOjos5FRVk99ayETH4CUSJrUCU1K5kpKIcmPTYrOMlZ2gsiQdxbqcau6XIkEjHE2IQ/qml5qT4uXONR512DoQx2doKFebELRaqp1Bqp8WFBognRGvdrf14T/paZLQjmiMXTYAW5t+A4mAT5pzYSZJ7hnkC6zLbSoqo0W6fRLUpqSR13MUdJ3qtkLS+r6LMTSeDTi+YT5vNf9ZdSotu2nXkfVqXXwd76mtwj85WtZ+7myx2P9/sBr3Zrkd8aD/WSxJ4gfhzpx2bq1pttrxpyfXg3fgg4wH+Ya/jdM77Br5/OcPhZ93l+gSVtM+32YJlLvuHfTgqfL0NwIcAAg6i961ryXmAAAAAASUVORK5CYII=</icon>
     <properties>
+        <!--enum for choosing tooltip type -->
+        <property key="tooltipType" type="enumeration" defaultValue="linkTooltip">
+            <caption>Tooltip type</caption>
+            <category>Data source</category>
+            <description>Select type of tooltip</description>
+            <enumerationValues>
+                <enumerationValue key="linkTooltip">Link tooltip</enumerationValue>
+                <enumerationValue key="imageTooltip">Image tooltip</enumerationValue>
+                <enumerationValue key="webpageTooltip">Webpage tooltip</enumerationValue>
+            </enumerationValues>
+        </property>
+
         <property key="linktext" type="string">
             <caption>Link text</caption>
-            <category>Appearance</category>
+            <category>Data source</category>
             <description>Text of the link</description>
         </property>
+
         <property key="tooltipText" type="string">
             <caption>Tooltip text</caption>
-            <category>Appearance</category>
+            <category>Data source</category>
             <description>Text to display on the tooltip</description>
         </property>
+
+        <property key="imageUrl" type="string" defaultValue="" required="false">
+            <caption>Image URL</caption>
+            <category>Data source</category>
+            <description>Enter link of image to display</description>
+        </property>
+
+        <property key="imageTooltip" type="string" defaultValue="" required="false">
+            <caption>Image tooltip</caption>
+            <category>Data source</category>
+            <description>Text to display on the tooltip</description>
+        </property>
+
+        <property key="reference" type="string" defaultValue="" required="false">
+            <caption>Website name</caption>
+            <category>Data source</category>
+            <description>Name to reference the website</description>
+        </property>
+
+        <property key="websiteURL" type="string" defaultValue="" required="false">
+            <caption>Enter URL</caption>
+            <category>Data source</category>
+            <description>For example: www.example.com </description>
+        </property>
+        <!-- end of enum to choose tooltip type-->
+
         <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip posotion</caption>
             <category>Appearance</category>
@@ -25,6 +64,7 @@
                 <enumerationValue key="left">left</enumerationValue>
             </enumerationValues>
         </property>
+        
         <!-- the bootstrap style of the tooltip -->
         <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
             <caption>Style</caption>
@@ -48,6 +88,8 @@
                 <enumerationValue key="solid">solid</enumerationValue>
             </enumerationValues>
         </property>
+
+
         <property key="callMicroflow" type="microflow" required="false" defaultValue="">
             <caption>Microflow</caption>
             <category>Behavior</category>
@@ -59,13 +101,6 @@
             <category>Behavior</category>
             <description>Nanoflow to execute on click</description>
             <returnType type="Void"></returnType>
-        </property>
-        <!-- experimental image-->
-
-        <property key="imageAttribute" type="string" defaultValue="" required="false">
-            <caption>image</caption>
-            <category>data source</category>
-            <description>paste image link to display</description>
         </property>
     </properties>
 </widget>

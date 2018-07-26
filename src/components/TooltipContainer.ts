@@ -30,19 +30,17 @@ export default class TooltipContainer extends Component<WrapperProps> {
     render() {
 
         return createElement("div", { className: "widget" },
-            createElement("p", {
+            createElement("a", {
                 "data-tip": this.props.tooltipText,
                 "data-place": this.props.tooltipPosition,
                 "data-type": this.props.bootstrapStyle,
                 "data-effect": this.props.bootstrapEffect,
                 "class": "linktext"
-            },
-                this.props.linktext),
+            }, this.props.linktext),
             createElement(ReactTooltip, {}),
-            createElement("a", { href: "https://www.betpawa.ug" },
-                "       Money is here"),
-            createElement("div", { className: "box" },
-                createElement("iframe", { src: "https://www.betpawa.ug", className: "iFrame" })
+            createElement("a", { href: "https://www.betpawa.ug" }, "      Money is here"),
+                createElement("div", { className: "box" },
+                    createElement("iframe", { src: "https://www.betpawa.ug", className: "iFrame" })
             ),
                 createElement("img", {
                     "src": this.getImageUrl(),
