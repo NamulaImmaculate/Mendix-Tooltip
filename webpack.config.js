@@ -32,7 +32,18 @@ const widgetConfig = {
                     { loader: "css-loader" },
                     { loader: "sass-loader" }
                 ]
-            }) }
+            }) }, 
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
+            }
         ]
     },
     mode: "development",

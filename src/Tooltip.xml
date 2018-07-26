@@ -60,5 +60,12 @@
             <description>Nanoflow to execute on click</description>
             <returnType type="Void"></returnType>
         </property>
+        <!-- experimental image-->
+
+        <property key="imageAttribute" type="string" defaultValue="" required="false">
+            <caption>image</caption>
+            <category>data source</category>
+            <description>paste image link to display</description>
+        </property>
     </properties>
 </widget>
