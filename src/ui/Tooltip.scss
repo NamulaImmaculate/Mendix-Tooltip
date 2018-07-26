@@ -1,3 +1,25 @@
-.tooltiptext {
-    cursor: pointer;
-}
+    .linktext {
+        cursor: pointer;
+        color: #0595DB;
+    }
+    
+    .iFrame {
+        width: 500px;
+        height: 500px;
+    }
+    
+    .box {
+        display: none;
+        width: 100%;
+    }
+    
+    a:hover+.box,
+    .box:hover {
+        display: block;
+        position: relative;
+        z-index: 100;
+    }
+    
+    .widget {
+        width: auto;
+    }
