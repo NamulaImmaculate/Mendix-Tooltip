@@ -28,6 +28,7 @@
             <description>Text to display on the tooltip</description>
         </property>
 
+        <!-- for the image-->
         <property key="imageUrl" type="string" defaultValue="" required="false">
             <caption>Image URL</caption>
             <category>Data source</category>
@@ -40,6 +41,7 @@
             <description>Text to display on the tooltip</description>
         </property>
 
+        <!-- website tooltip-->
         <property key="reference" type="string" defaultValue="" required="false">
             <caption>Website name</caption>
             <category>Data source</category>
