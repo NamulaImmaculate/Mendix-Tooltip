@@ -48,6 +48,16 @@
                 <enumerationValue key="solid">solid</enumerationValue>
             </enumerationValues>
         </property>
+        <property key="reference" type="string">
+            <caption>Website Name</caption>
+            <category>Website</category>
+            <description>Name to reference the website</description>
+        </property>
+        <property key="url" type="string">
+            <caption>Enter URL</caption>
+            <category>Website</category>
+            <description>For example: www.example.com</description>
+        </property>
         <property key="callMicroflow" type="microflow" required="false" defaultValue="">
             <caption>Microflow</caption>
             <category>Behavior</category>
@@ -59,6 +69,15 @@
             <category>Behavior</category>
             <description>Nanoflow to execute on click</description>
             <returnType type="Void"></returnType>
+        </property>
+        <property key="tooltipType" type="enumeration" defaultValue="bootstrapLink">
+            <caption>Tooltip type</caption>
+            <category>Try</category>
+            <description>Select typa tooltip</description>
+            <enumerationValues>
+                <enumerationValue key="bootstrapLink" >Bootstrap link</enumerationValue>
+                <enumerationValue key="website">Website</enumerationValue>
+            </enumerationValues>
         </property>
     </properties>
 </widget>

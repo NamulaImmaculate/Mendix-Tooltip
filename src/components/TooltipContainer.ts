@@ -11,6 +11,8 @@ export interface WrapperProps {
     friendlyId: string;
     tooltipText: string;
     linktext: string;
+    url: string;
+    reference: string;
     callMicroflow?: string;
     callNanoflow?: Nanoflow;
     tooltipPosition: "top" | "right" | "bottom" | "left";
@@ -38,10 +40,10 @@ export default class TooltipContainer extends Component<WrapperProps> {
             },
                 this.props.linktext),
             createElement(ReactTooltip, {}),
-            createElement("a", { href: "https://www.betpawa.ug" },
-                "       Money is here"),
+            createElement("a", { href: this.props.url },
+                this.props.reference),
             createElement("div", { className: "box" },
-                createElement("iframe", { src: "https://www.betpawa.ug", className: "iFrame" })
+                createElement("iframe", { src: this.props.url, className: "iFrame" })
             )
         );
     }
