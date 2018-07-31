@@ -1,6 +1,6 @@
 {
     "name": "tooltip",
-    "widgetName": "tooltip",
+    "widgetName": "Tooltip",
     "version": "0.0.1",
     "description": "Add tooltip to a user defined text, image or link",
     "scripts": {
