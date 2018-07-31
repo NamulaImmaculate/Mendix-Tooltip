@@ -34,10 +34,19 @@
             </attributeTypes>
         </property>
         <!-- for the image-->
-        <property key="imageUrl" type="attribute" required="false" defaultValue="">
-            <caption>Image URL</caption>
+        <property key="imageSourceType" type="enumeration" defaultValue="localDatabase">
+            <caption>image source type</caption>
             <category>Data source</category>
-            <description>Link of image to display for example http://image.io/x.jpg</description>
+            <description>Image source</description>
+            <enumerationValues>
+                <enumerationValue key="localDatabase">local database</enumerationValue>
+                <enumerationValue key="OnlineURL">Online URL</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="imageUrl" type="attribute" required="false" defaultValue="">
+            <caption>Image source</caption>
+            <category>Data source</category>
+            <description>image URL for example http://image.io/x.jpg or image from local databse</description>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
@@ -50,7 +59,6 @@
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
-        
         <!-- website tooltip-->
         <property key="reference" type="attribute" required="false" defaultValue="">
             <caption>Website name</caption>
