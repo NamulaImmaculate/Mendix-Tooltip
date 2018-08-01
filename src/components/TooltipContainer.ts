@@ -1,4 +1,4 @@
-import { /*CSSProperties,*/ Component, createElement } from "react";
+import { Component, createElement } from "react";
 import * as ReactTooltip from "react-tooltip";
 import "../ui/Tooltip.scss";
 
@@ -9,6 +9,8 @@ export interface WrapperProps {
     style: string;
     readOnly: boolean;
     friendlyId: string;
+}
+export interface ContainerProps extends WrapperProps {
     tooltipText: string;
     linktext: string;
     url: string;
@@ -25,9 +27,8 @@ export interface WrapperProps {
     websiteURL: string;
     tooltipForm: mxui.lib.form._FormBase;
     formText: string;
+    imageSourceType: string;
 }
-
-// type PageLocation = "popup" | "modal" | "content";
 
 interface Nanoflow {
     nanoflow: any[];
@@ -36,60 +37,93 @@ interface Nanoflow {
     };
 }
 
-export default class TooltipContainer extends Component<WrapperProps> {
+interface ContainerState {
+    linkText?: string;
+    tooltipText?: string;
+    imageUrl?: string;
+    imageTooltip?: string;
+    websiteURL?: string;
+    imageU?: string;
+    reference?: string;
+}
+
+export default class TooltipContainer extends Component<ContainerProps, ContainerState> {
+
+    readonly state: ContainerState = {
+        linkText: "",
+        tooltipText: "",
+        imageUrl: "",
+        imageTooltip: "",
+        websiteURL: "",
+        reference: ""
+    };
 
     render() {
         return this.setTooltipType();
     }
 
+    componentWillReceiveProps(newProps: ContainerProps) {
+        ReactTooltip.rebuild();
+        let imageSource = "";
+        const { mxObject } = newProps;
+        if (this.props.imageSourceType === "localDatabase") {
+            imageSource = mx.data.getDocumentUrl(mxObject.getGuid(), mxObject.get("changedDate") as number, true);
+        } else if (this.props.imageSourceType === "OnlineURL") {
+            imageSource = mxObject.get(this.props.imageUrl) as string;
+        }
+
+        if (mxObject) {
+            this.setState(
+                {
+                    linkText: mxObject.get(this.props.linktext) as string,
+                    tooltipText: mxObject.get(this.props.tooltipText) as string,
+                    imageUrl: imageSource,
+                    imageTooltip: mxObject.get(this.props.imageTooltip) as string,
+                    websiteURL: mxObject.get(this.props.websiteURL) as string,
+                    reference: mxObject.get(this.props.reference) as string
+                }
+            );
+        }
+    }
+
     setTooltipType() {
-        if (this.props.tooltipType === "linkTooltip" && this.props.tooltipText && this.props.linktext) {
+        if (this.props.tooltipType === "linkTooltip") {
             return createElement("div", { className: "widget" },
                 createElement("a", {
-                    "data-tip": this.props.tooltipText,
+                    "data-tip": this.state.tooltipText,
                     "data-place": this.props.tooltipPosition,
                     "data-type": this.props.bootstrapStyle,
                     "data-effect": this.props.bootstrapEffect,
                     "class": "linktext"
-                    }, this.props.linktext),
+                    }, this.state.linkText),
                 createElement(ReactTooltip, { className: "toolTip" })
             );
-        } else if (this.props.tooltipType === "imageTooltip" && this.props.imageUrl && this.props.imageTooltip) {
+        } else if (this.props.tooltipType === "imageTooltip") {
             return createElement("div", { className: "widget" },
             createElement("img", {
-                "data-tip": this.props.imageUrl,
+                "data-tip": this.state.imageTooltip,
                 "data-place": this.props.tooltipPosition,
                 "data-type": this.props.bootstrapStyle,
                 "data-effect": this.props.bootstrapEffect,
                 "class": "linktext",
-                "src": this.props.imageUrl
+                "src": this.state.imageUrl
                 }),
-            createElement(ReactTooltip, {})
-        );
-        } else if (this.props.tooltipType === "webpageTooltip" && this.props.reference && this.props.websiteURL) {
+                createElement(ReactTooltip, {})
+            );
+        } else if (this.props.tooltipType === "webpageTooltip") {
             return createElement("div", { className: "widget" },
-                        createElement("a", { href: this.props.websiteURL }, this.props.reference),
-                        createElement("div", { className: "box" },
-                            createElement("iframe", { src: this.props.websiteURL, className: "iFrame" })
-                        ),
-                    createElement(ReactTooltip, {})
-        );
+                createElement("a", { href: this.state.websiteURL }, this.state.reference),
+                createElement("div", { className: "box" },
+                    createElement("iframe", { src: this.state.websiteURL, className: "iFrame" })
+                ),
+                createElement(ReactTooltip, {})
+            );
         } else {
             return null;
         }
     }
 
-    // private showPage() {
-    //     // const context = this.getContext(this.props.formText);
-    //     window.mx.ui.openForm(this.props.tooltipForm, {
-    //     location: "popup",
-    //     error: error => window.mx.ui.error(
-    //         `An error occurred while opening form ${this.props.tooltipForm} : ${error.message}`
-    //     )
-    //     });
-    // }
-
-    public static parseStyle(style = ""): { [key: string]: string; } {
+    public static parseStyle(style = ""): { [key: string]: string } {
         try {
             return style.split(";").reduce<{ [key: string]: string }>((styleObject, line) => {
                 const pair = line.split(":");

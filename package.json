@@ -72,7 +72,6 @@
         "webworkify-webpack": "^2.1.3"
     },
     "dependencies": {
-        "@types/react-tooltip": "^3.3.5",
         "react-tooltip": "^3.6.1"
     }
 }
