@@ -63,8 +63,7 @@
         <property key="reference" type="attribute" required="false" defaultValue="">
             <caption>Website name</caption>
             <category>Data source</category>
-            <description/
-            >
+            <description/>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
