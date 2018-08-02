@@ -48,7 +48,7 @@ export interface ContainerState {
     reference?: string;
 }
 
-const createTooltip = new CreateTooltip<>();
+const createTooltip = CreateTooltip;
 
 export default class TooltipContainer extends Component<ContainerProps, ContainerState> {
 
