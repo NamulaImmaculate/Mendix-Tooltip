@@ -1,6 +1,7 @@
-import { Component, createElement } from "react";
+import { Component } from "react";
 import * as ReactTooltip from "react-tooltip";
 import "../ui/Tooltip.scss";
+import CreateTooltip from "./CreateTooltip";
 
 export interface WrapperProps {
     class: string;
@@ -37,7 +38,7 @@ interface Nanoflow {
     };
 }
 
-interface ContainerState {
+export interface ContainerState {
     linkText?: string;
     tooltipText?: string;
     imageUrl?: string;
@@ -46,6 +47,8 @@ interface ContainerState {
     imageU?: string;
     reference?: string;
 }
+
+const createTooltip = new CreateTooltip<>();
 
 export default class TooltipContainer extends Component<ContainerProps, ContainerState> {
 
@@ -59,24 +62,12 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
     };
 
     render() {
-        return this.createTooltipByType();
+        return createTooltip;
     }
 
     componentWillReceiveProps(newProps: ContainerProps) {
         ReactTooltip.rebuild();
         this.fetchProps(newProps);
-    }
-
-    createTooltipByType() {
-        if (this.props.tooltipType === "linkTooltip") {
-            return this.createLinkTooltip();
-        } else if (this.props.tooltipType === "imageTooltip") {
-            return this.createImageTooltip();
-        } else if (this.props.tooltipType === "webpageTooltip") {
-            return this.createWebsiteTooltip();
-        } else {
-            return null;
-        }
     }
 
     private fetchProps(newProps: ContainerProps) {
@@ -102,42 +93,54 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
         }
     }
 
-    private createLinkTooltip() {
-        return createElement("div", { className: "widget" },
-            createElement("a", {
-                "data-tip": this.state.tooltipText,
-                "data-place": this.props.tooltipPosition,
-                "data-type": this.props.bootstrapStyle,
-                "data-effect": this.props.bootstrapEffect,
-                "class": "linktext"
-            }, this.state.linkText),
-            createElement(ReactTooltip, { className: "toolTip" })
-        );
-    }
+    // private createLinkTooltip() {
+    //     return createElement("div", { className: "widget" },
+    //         createElement("a", {
+    //             "data-tip": this.state.tooltipText,
+    //             "data-place": this.props.tooltipPosition,
+    //             "data-type": this.props.bootstrapStyle,
+    //             "data-effect": this.props.bootstrapEffect,
+    //             "class": "linktext"
+    //         }, this.state.linkText),
+    //         createElement(ReactTooltip, { className: "toolTip" })
+    //     );
+    // }
 
-    private createImageTooltip() {
-        return createElement("div", { className: "widget" },
-            createElement("img", {
-                "data-tip": this.state.imageTooltip,
-                "data-place": this.props.tooltipPosition,
-                "data-type": this.props.bootstrapStyle,
-                "data-effect": this.props.bootstrapEffect,
-                "class": "linktext",
-                "src": this.state.imageUrl
-            }),
-            createElement(ReactTooltip, {})
-        );
-    }
+    // private createImageTooltip() {
+    //     return createElement("div", { className: "widget" },
+    //         createElement("img", {
+    //             "data-tip": this.state.imageTooltip,
+    //             "data-place": this.props.tooltipPosition,
+    //             "data-type": this.props.bootstrapStyle,
+    //             "data-effect": this.props.bootstrapEffect,
+    //             "class": "linktext",
+    //             "src": this.state.imageUrl
+    //         }),
+    //         createElement(ReactTooltip, {})
+    //     );
+    // }
 
-    private createWebsiteTooltip() {
-        return createElement("div", { className: "widget" },
-            createElement("a", { href: this.state.websiteURL }, this.state.reference),
-            createElement("div", { className: "box" },
-                createElement("iframe", { src: this.state.websiteURL, className: "iFrame" })
-            ),
-            createElement(ReactTooltip, {})
-        );
-    }
+    // private createWebsiteTooltip() {
+    //     return createElement("div", { className: "widget" },
+    //         createElement("a", { href: this.state.websiteURL }, this.state.reference),
+    //         createElement("div", { className: "box" },
+    //             createElement("iframe", { src: this.state.websiteURL, className: "iFrame" })
+    //         ),
+    //         createElement(ReactTooltip, {})
+    //     );
+    // }
+
+    // createTooltipByType() {
+    //     if (this.props.tooltipType === "linkTooltip") {
+    //         return this.createLinkTooltip();
+    //     } else if (this.props.tooltipType === "imageTooltip") {
+    //         return this.createImageTooltip();
+    //     } else if (this.props.tooltipType === "webpageTooltip") {
+    //         return this.createWebsiteTooltip();
+    //     } else {
+    //         return null;
+    //     }
+    // }
 
     public static parseStyle(style = ""): { [key: string]: string } {
         try {

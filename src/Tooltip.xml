@@ -18,7 +18,7 @@
         </property>
         <!-- for the tooltip link -->
         <property key="linktext" type="attribute" required="false" defaultValue="">
-            <caption>Message</caption>
+            <caption>Hyperlink</caption>
             <category>Data source</category>
             <description/>
             <attributeTypes>
@@ -28,7 +28,7 @@
         <property key="tooltipText" type="attribute" required="false" defaultValue="">
             <caption>Tooltip text</caption>
             <category>Data source</category>
-            <description/>
+            <description>Tooltip content for the Hyperlink</description>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
@@ -39,7 +39,7 @@
             <category>Data source</category>
             <description/>
             <enumerationValues>
-                <enumerationValue key="localDatabase">local database</enumerationValue>
+                <enumerationValue key="localDatabase">Local database</enumerationValue>
                 <enumerationValue key="OnlineURL">Online URL</enumerationValue>
             </enumerationValues>
         </property>
@@ -54,7 +54,7 @@
         <property key="imageTooltip" type="attribute" required="false" defaultValue="">
             <caption>Image tooltip</caption>
             <category>Data source</category>
-            <description>Text to display on the tooltip, can as well be the URL</description>
+            <description>Tooltip content for the Image</description>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
@@ -63,35 +63,30 @@
         <property key="reference" type="attribute" required="false" defaultValue="">
             <caption>Website name</caption>
             <category>Data source</category>
-            <description/
-            >
+            <description/>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
-
         <property key="websiteURL" type="attribute" required="false" defaultValue="">
             <caption>URL</caption>
             <category>Data source</category>
-            <description>For example: www.example.com</description>
+            <description/>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
         <!-- end of enum to choose tooltip type-->
-
         <property key="formText" type="string" required="false">
             <caption>Form text</caption>
             <category>Data source</category>
             <description/>
         </property>
-
         <property key="tooltipForm" type="form" required="false">
             <caption>Tooltip form</caption>
             <category>Data source</category>
-            <description/>
+            <description>Page to display as a tooltip</description>
         </property>
-
         <!-- for tooltip position-->
         <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip position</caption>
@@ -104,7 +99,6 @@
                 <enumerationValue key="left">left</enumerationValue>
             </enumerationValues>
         </property>
-        
         <!-- the bootstrap style of the tooltip -->
         <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
             <caption>Style</caption>
@@ -129,7 +123,6 @@
                 <enumerationValue key="solid">solid</enumerationValue>
             </enumerationValues>
         </property>
-
         <!-- Behaviour -->
         <property key="callMicroflow" type="microflow" required="false" defaultValue="">
             <caption>Microflow</caption>
