@@ -59,11 +59,27 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
     };
 
     render() {
-        return this.setTooltipType();
+        return this.createTooltipByType();
     }
 
     componentWillReceiveProps(newProps: ContainerProps) {
         ReactTooltip.rebuild();
+        this.fetchProps(newProps);
+    }
+
+    createTooltipByType() {
+        if (this.props.tooltipType === "linkTooltip") {
+            return this.createLinkTooltip();
+        } else if (this.props.tooltipType === "imageTooltip") {
+            return this.createImageTooltip();
+        } else if (this.props.tooltipType === "webpageTooltip") {
+            return this.createWebsiteTooltip();
+        } else {
+            return null;
+        }
+    }
+
+    private fetchProps(newProps: ContainerProps) {
         let imageSource = "";
         const { mxObject } = newProps;
         if (this.props.imageSourceType === "localDatabase") {
@@ -86,20 +102,21 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
         }
     }
 
-    setTooltipType() {
-        if (this.props.tooltipType === "linkTooltip") {
-            return createElement("div", { className: "widget" },
-                createElement("a", {
-                    "data-tip": this.state.tooltipText,
-                    "data-place": this.props.tooltipPosition,
-                    "data-type": this.props.bootstrapStyle,
-                    "data-effect": this.props.bootstrapEffect,
-                    "class": "linktext"
-                    }, this.state.linkText),
-                createElement(ReactTooltip, { className: "toolTip" })
-            );
-        } else if (this.props.tooltipType === "imageTooltip") {
-            return createElement("div", { className: "widget" },
+    private createLinkTooltip() {
+        return createElement("div", { className: "widget" },
+            createElement("a", {
+                "data-tip": this.state.tooltipText,
+                "data-place": this.props.tooltipPosition,
+                "data-type": this.props.bootstrapStyle,
+                "data-effect": this.props.bootstrapEffect,
+                "class": "linktext"
+            }, this.state.linkText),
+            createElement(ReactTooltip, { className: "toolTip" })
+        );
+    }
+
+    private createImageTooltip() {
+        return createElement("div", { className: "widget" },
             createElement("img", {
                 "data-tip": this.state.imageTooltip,
                 "data-place": this.props.tooltipPosition,
@@ -107,20 +124,19 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
                 "data-effect": this.props.bootstrapEffect,
                 "class": "linktext",
                 "src": this.state.imageUrl
-                }),
-                createElement(ReactTooltip, {})
-            );
-        } else if (this.props.tooltipType === "webpageTooltip") {
-            return createElement("div", { className: "widget" },
-                createElement("a", { href: this.state.websiteURL }, this.state.reference),
-                createElement("div", { className: "box" },
-                    createElement("iframe", { src: this.state.websiteURL, className: "iFrame" })
-                ),
-                createElement(ReactTooltip, {})
-            );
-        } else {
-            return null;
-        }
+            }),
+            createElement(ReactTooltip, {})
+        );
+    }
+
+    private createWebsiteTooltip() {
+        return createElement("div", { className: "widget" },
+            createElement("a", { href: this.state.websiteURL }, this.state.reference),
+            createElement("div", { className: "box" },
+                createElement("iframe", { src: this.state.websiteURL, className: "iFrame" })
+            ),
+            createElement(ReactTooltip, {})
+        );
     }
 
     public static parseStyle(style = ""): { [key: string]: string } {

@@ -20,7 +20,7 @@
         <property key="linktext" type="attribute" required="false" defaultValue="">
             <caption>Message</caption>
             <category>Data source</category>
-            <description>Text of the link</description>
+            <description/>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
@@ -28,25 +28,25 @@
         <property key="tooltipText" type="attribute" required="false" defaultValue="">
             <caption>Tooltip text</caption>
             <category>Data source</category>
-            <description>Text to display on the tooltip</description>
+            <description/>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
         <!-- for the image-->
         <property key="imageSourceType" type="enumeration" defaultValue="localDatabase">
-            <caption>image source type</caption>
+            <caption>Image source</caption>
             <category>Data source</category>
-            <description>Image source</description>
+            <description/>
             <enumerationValues>
                 <enumerationValue key="localDatabase">local database</enumerationValue>
                 <enumerationValue key="OnlineURL">Online URL</enumerationValue>
             </enumerationValues>
         </property>
         <property key="imageUrl" type="attribute" required="false" defaultValue="">
-            <caption>Image source</caption>
+            <caption>Image URL</caption>
             <category>Data source</category>
-            <description>image URL for example http://image.io/x.jpg or image from local databse</description>
+            <description>Only for an image from the internet</description>
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
@@ -63,14 +63,15 @@
         <property key="reference" type="attribute" required="false" defaultValue="">
             <caption>Website name</caption>
             <category>Data source</category>
-            <description>Name to reference the website</description>
+            <description/
+            >
             <attributeTypes>
                 <attributeType name="String"/>
             </attributeTypes>
         </property>
 
         <property key="websiteURL" type="attribute" required="false" defaultValue="">
-            <caption>Website URL</caption>
+            <caption>URL</caption>
             <category>Data source</category>
             <description>For example: www.example.com</description>
             <attributeTypes>
@@ -79,16 +80,16 @@
         </property>
         <!-- end of enum to choose tooltip type-->
 
-        <property key="tooltipForm" type="form" required="false">
-            <caption>Tooltip form</caption>
-            <category>Data source</category>
-            <description>Tooltip form</description>
-        </property>
-
         <property key="formText" type="string" required="false">
             <caption>Form text</caption>
             <category>Data source</category>
-            <description>Text of the link</description>
+            <description/>
+        </property>
+
+        <property key="tooltipForm" type="form" required="false">
+            <caption>Tooltip form</caption>
+            <category>Data source</category>
+            <description/>
         </property>
 
         <!-- for tooltip position-->
