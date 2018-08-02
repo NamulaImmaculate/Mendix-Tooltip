@@ -8,7 +8,7 @@
         <property key="tooltipType" type="enumeration" defaultValue="linkTooltip">
             <caption>Tooltip type</caption>
             <category>Appearance</category>
-            <description>type of tooltip</description>
+            <description/>
             <enumerationValues>
                 <enumerationValue key="linkTooltip">Link tooltip</enumerationValue>
                 <enumerationValue key="imageTooltip">Image tooltip</enumerationValue>
@@ -91,7 +91,7 @@
         <property key="tooltipPosition" type="enumeration" defaultValue="top">
             <caption>Tooltip position</caption>
             <category>Appearance</category>
-            <description>Position to display the tooltip</description>
+            <description/>
             <enumerationValues>
                 <enumerationValue key="top">top</enumerationValue>
                 <enumerationValue key="right">right</enumerationValue>
@@ -101,9 +101,9 @@
         </property>
         <!-- the bootstrap style of the tooltip -->
         <property key="bootstrapStyle" type="enumeration" defaultValue="dark">
-            <caption>Style</caption>
+            <caption>Tooltip style</caption>
             <category>Appearance</category>
-            <description>Style to display the tooltip</description>
+            <description/>
             <enumerationValues>
                 <enumerationValue key="dark">dark</enumerationValue>
                 <enumerationValue key="success">success</enumerationValue>
@@ -117,7 +117,7 @@
         <property key="bootstrapEffect" type="enumeration" defaultValue="float">
             <caption>Effect</caption>
             <category>Appearance</category>
-            <description>Effect for the tooltip</description>
+            <description>Behaviour of tooltip on hover</description>
             <enumerationValues>
                 <enumerationValue key="float">float</enumerationValue>
                 <enumerationValue key="solid">solid</enumerationValue>
