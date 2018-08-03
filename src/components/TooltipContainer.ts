@@ -15,8 +15,6 @@ export interface ContainerProps extends WrapperProps {
     tooltipText: string;
     linktext: string;
     url: string;
-    callMicroflow?: string;
-    callNanoflow?: Nanoflow;
     tooltipPosition: "top" | "right" | "bottom" | "left";
     bootstrapStyle: "dark" | "success" | "warning" | "error" | "info" | "light";
     bootstrapEffect: "float" | "solid";
@@ -29,13 +27,6 @@ export interface ContainerProps extends WrapperProps {
     tooltipForm: mxui.lib.form._FormBase;
     formText: string;
     imageSourceType: string;
-}
-
-interface Nanoflow {
-    nanoflow: any[];
-    paramsSpec: {
-        Progress: string;
-    };
 }
 
 export interface ContainerState {
