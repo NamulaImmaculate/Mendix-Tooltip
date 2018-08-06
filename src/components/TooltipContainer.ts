@@ -19,12 +19,13 @@ export interface ContainerProps extends WrapperProps {
     bootstrapStyle: "dark" | "success" | "warning" | "error" | "info" | "light";
     bootstrapEffect: "float" | "solid";
     imageAttribute: string;
-    tooltipType: "linkTooltip" | "imageTooltip" | "webpageTooltip";
+    tooltipType: "linkTooltip" | "imageTooltip" | "webpageTooltip" | "formTooltip";
+    openPageAs: "modal" | "popup";
     imageUrl: string;
     imageTooltip: string;
     reference: string;
     websiteURL: string;
-    tooltipForm: mxui.lib.form._FormBase;
+    tooltipForm: string;
     formText: string;
     imageSourceType: string;
 }
@@ -37,6 +38,8 @@ export interface ContainerState {
     websiteURL?: string;
     imageU?: string;
     reference?: string;
+    formText?: string;
+    tooltipForm?: string;
 }
 
 export default class TooltipContainer extends Component<ContainerProps, ContainerState> {
@@ -47,7 +50,9 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
         imageUrl: "",
         imageTooltip: "",
         websiteURL: "",
-        reference: ""
+        reference: "",
+        formText: "",
+        tooltipForm: ""
     };
 
     render() {
@@ -62,7 +67,10 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
                 imageTooltip: this.state.imageTooltip,
                 imageUrl: this.state.imageUrl,
                 websiteURL: this.state.websiteURL,
-                reference: this.state.reference
+                reference: this.state.reference,
+                formText: this.state.formText,
+                tooltipForm: this.state.tooltipForm,
+                handleHover: this.handleHover
             }
         );
     }
@@ -81,18 +89,37 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
             imageSource = mxObject.get(this.props.imageUrl) as string;
         }
 
+        const linkText = mxObject.get(this.props.linktext) as string;
+        const tooltipText = mxObject.get(this.props.tooltipText) as string;
+        const imageUrl = imageSource;
+        const imageTooltip = mxObject.get(this.props.imageTooltip) as string;
+        const websiteURL = mxObject.get(this.props.websiteURL) as string;
+        const reference = mxObject.get(this.props.reference) as string;
+        const formText = mxObject.get(this.props.formText) as string;
+        const tooltipForm = mxObject.get(this.props.tooltipForm) as string;
+
         if (mxObject) {
             this.setState(
                 {
-                    linkText: mxObject.get(this.props.linktext) as string,
-                    tooltipText: mxObject.get(this.props.tooltipText) as string,
-                    imageUrl: imageSource,
-                    imageTooltip: mxObject.get(this.props.imageTooltip) as string,
-                    websiteURL: mxObject.get(this.props.websiteURL) as string,
-                    reference: mxObject.get(this.props.reference) as string
+                    linkText,
+                    tooltipText,
+                    imageUrl,
+                    imageTooltip,
+                    websiteURL,
+                    reference,
+                    formText,
+                    tooltipForm
                 }
             );
         }
+    }
+
+    private handleHover = () => {
+        window.mx.ui.openForm(this.props.tooltipForm, {
+            location: this.props.openPageAs,
+            error: error => window.mx.ui.error(
+                `An error occurred while opening form ${this.props.tooltipForm} : ${error.message}`)
+        });
     }
 
     public static parseStyle(style = ""): { [key: string]: string } {

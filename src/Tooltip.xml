@@ -65,10 +65,13 @@
             </attributeTypes>
         </property>
         <!-- end of enum to choose tooltip type-->
-        <property key="formText" type="string" required="false">
+        <property key="formText" type="attribute" required="false" defaultValue="">
             <caption>Form text</caption>
             <category>Data source</category>
             <description/>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
         </property>
         <property key="tooltipForm" type="form" required="false">
             <caption>Tooltip form</caption>
@@ -83,7 +86,8 @@
             <enumerationValues>
                 <enumerationValue key="linkTooltip">Link tooltip</enumerationValue>
                 <enumerationValue key="imageTooltip">Image tooltip</enumerationValue>
-                <enumerationValue key="webpageTooltip">Webpage tooltip</enumerationValue> 
+                <enumerationValue key="webpageTooltip">Webpage tooltip</enumerationValue>
+                <enumerationValue key="formTooltip">Form tooltip</enumerationValue>
                 <!-- Mendix Page is shown on hover -->
             </enumerationValues>
         </property>        
@@ -121,6 +125,15 @@
             <enumerationValues>
                 <enumerationValue key="float">float</enumerationValue>
                 <enumerationValue key="solid">solid</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="openPageAs" type="enumeration" defaultValue="modal">
+            <caption>Open Page As</caption>
+            <category>Appearance</category>
+            <description>For the form tooltip</description>
+            <enumerationValues>
+                <enumerationValue key="popup">Popup</enumerationValue>
+                <enumerationValue key="modal">Blocked popup</enumerationValue>
             </enumerationValues>
         </property>
     </properties>
