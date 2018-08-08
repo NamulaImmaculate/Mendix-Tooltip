@@ -69,7 +69,6 @@ export default class TooltipContainer extends Component<ContainerProps, Containe
                 websiteURL: this.state.websiteURL,
                 reference: this.state.reference,
                 formText: this.state.formText,
-                tooltipForm: this.state.tooltipForm,
                 handleHover: this.handleHover
             }
         );
