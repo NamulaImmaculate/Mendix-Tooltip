@@ -1,0 +1,40 @@
+    .formName {
+        cursor: pointer;
+        color: #0595DB;
+    }
+    
+    .iFrame {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .box {
+        display: none;
+        width: 100%;
+    }
+    
+    a:hover+.box,
+    .box:hover {
+        display: block;
+        position: relative;
+        z-index: 100;
+    }
+    
+    .widget-toolip {
+        width: auto;
+    }
+    
+    .toolTip {
+        max-width: 300px;
+    }
+    
+    .error {
+        background-color: red;
+        color: white;
+        opacity: 0.5;
+        max-width: 400px;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 10px;
+        text-align: center;
+    }
